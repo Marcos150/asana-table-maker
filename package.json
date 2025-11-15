@@ -1,0 +1,22 @@
+{
+  "name": "asanatareas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "install-prod": "npm i --omit=dev",
+    "check-update": "echo 'Esto debería hacer un pull' && npm run install-prod"
+  },
+  "keywords": [],
+  "author": "Marcos150",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@types/asana": "^0.18.17",
+    "@types/node": "^24.10.0"
+  },
+  "dependencies": {
+    "docx": "^9.5.1"
+  }
+}
