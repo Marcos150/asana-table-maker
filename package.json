@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
+    "start-color": "node main.js --color-completion",
     "install-prod": "npm i --omit=dev",
     "check-update": "git pull && npm run install-prod"
   },

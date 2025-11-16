@@ -24,7 +24,7 @@ To install the project dependencies use the following command:
 
 ```sh
 node --run install-prod # nodejs >= 22.0
-
+# or
 npm run install-prod
 ```
 
@@ -34,8 +34,16 @@ To execute the script use the following command:
 
 ```sh
 node --run start # nodejs >= 22.0
+# or
+npm start 
+```
 
-npm start
+If you want to color the completion status with green or red use the following command:
+
+```sh
+node --run start-color # nodejs >= 22.0
+# or
+npm run start-color
 ```
 
 You will be asked the initial and end date to filter the Asana Tasks that will appear on the table.
@@ -50,7 +58,7 @@ To get the latests changes use the following command:
 
 ```sh
 node --run check-update # nodejs >= 22.0
-
+# or
 npm run check-update
 ```
 

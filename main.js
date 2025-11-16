@@ -6,6 +6,8 @@ import { stdin as input, stdout as output } from 'node:process';
  * @typedef {import('asana').resources.Tasks.Type} AsanaTask
  */
 
+const colorCompletion = process.argv.includes("--color-completion");
+
 const headerShading = {
     fill: "#42c5f4",
     type: ShadingType.PERCENT_40,
@@ -19,6 +21,11 @@ const notCompletedShading = {
 const completedShading = {
     fill: "#42f468",
     type: ShadingType.PERCENT_40,
+};
+
+const grayShading = {
+    fill: "#d3d3d3",
+    type: ShadingType.PERCENT_75,
 };
 
 let obj;
@@ -79,9 +86,10 @@ rl.close();
 let initialDate = new Date(initialDateStr.split('-').reverse().join('-')) ?? new Date();
 let endDate = new Date(endDateStr.split('-').reverse().join('-'));
 
-if (isNaN(initialDate.getTime())) initialDate = new Date(0); // Si no es valida, pone la fecha minima posible
-if (isNaN(endDate.getTime())) endDate = new Date(); // Si no es valida, pone la fecha actual
+if (isNaN(initialDate.getTime())) initialDate = new Date(0); // If not valid, set to minimum date
+if (isNaN(endDate.getTime())) endDate = new Date(); // If not valid, set to current date
 
+let paintGray = false;
 tasks.filter((task) => {
     const createdAt = new Date(task.created_at ?? "");
     return createdAt >= initialDate && createdAt <= endDate;
@@ -95,29 +103,36 @@ tasks.filter((task) => {
             children: [
                 new TableCell({
                     children: [new Paragraph(task.name ?? "")],
+                    shading: paintGray ? grayShading : undefined,
                 }),
                 new TableCell({
                     children: [new Paragraph(task.assignee?.name ?? "Nadie")],
+                    shading: paintGray ? grayShading : undefined,
                 }),
                 new TableCell({
                     children: [new Paragraph(task.followers?.map(follower => follower.name).join(", ") ?? "")],
+                    shading: paintGray ? grayShading : undefined,
                 }),
                 new TableCell({
                     children: [new Paragraph(task.notes ?? "")],
+                    shading: paintGray ? grayShading : undefined,
                 }),
                 new TableCell({
                     children: [new Paragraph("")],
+                    shading: paintGray ? grayShading : undefined,
                 }),
                 new TableCell({
                     children: [new Paragraph(task.completed_at ? (new Date(task.completed_at)).toLocaleDateString() : "No completada")],
-                    shading: task.completed ? completedShading : notCompletedShading,
+                    shading: colorCompletion ? (task.completed ? completedShading : notCompletedShading) : paintGray ? grayShading : undefined,
                 }),
                 new TableCell({
                     children: [new Paragraph(task.memberships[0].section?.name ?? "")],
+                    shading: paintGray ? grayShading : undefined,
                 }),
             ],
         });
         rows.push(row);
+        paintGray = !paintGray;
     });
 
 const doc = new Document({
