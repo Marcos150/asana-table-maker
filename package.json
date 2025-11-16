@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node main.js",
     "install-prod": "npm i --omit=dev",
-    "check-update": "echo 'Esto debería hacer un pull' && npm run install-prod"
+    "check-update": "git pull && npm run install-prod"
   },
   "keywords": [],
   "author": "Marcos150",
