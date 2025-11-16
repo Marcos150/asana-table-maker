@@ -8,13 +8,13 @@ This script was originally made to help making the iteration reports of the Mult
 
 ## Dependencias
 
-To use this script it's necessary to have Node.js installed. You can download it [here](https://nodejs.org/es/download).
+To use this script it's necessary to have **Node.js** installed. You can download it [here](https://nodejs.org/es/download).
 
 ## Export tasks
 
 In your Asana project, select export -> JSON.
 
-![Asana example of exporting a JSON file](asanaExample.png)
+![Asana example of exporting a JSON file](imgs/asanaExample.png)
 
 Place the file on the project directory. Make sure the file name is `tasks.json`
 
@@ -61,6 +61,16 @@ node --run check-update # nodejs >= 22.0
 # or
 npm run check-update
 ```
+
+# Examples
+
+Default result:
+
+![Example result table](imgs/result1.png)
+
+With `start-color` command:
+
+![Example result table with colored field of completion](imgs/result2.png)
 
 # Libraries used
 

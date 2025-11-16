@@ -7,6 +7,7 @@ import { stdin as input, stdout as output } from 'node:process';
  */
 
 const colorCompletion = process.argv.includes("--color-completion");
+const locale = 'ES'; // Default date locale is Spanish
 
 const headerShading = {
     fill: "#42c5f4",
@@ -122,7 +123,7 @@ tasks.filter((task) => {
                     shading: paintGray ? grayShading : undefined,
                 }),
                 new TableCell({
-                    children: [new Paragraph(task.completed_at ? (new Date(task.completed_at)).toLocaleDateString() : "No completada")],
+                    children: [new Paragraph(task.completed_at ? (new Date(task.completed_at)).toLocaleDateString(new Intl.Locale(locale)) : "No completada")],
                     shading: colorCompletion ? (task.completed ? completedShading : notCompletedShading) : paintGray ? grayShading : undefined,
                 }),
                 new TableCell({
