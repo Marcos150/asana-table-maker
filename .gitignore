@@ -142,3 +142,7 @@ vite.config.ts.timestamp-*
 
 # Asana tasks json
 tasks.json
+
+# Exported docx files
+*.docx
+*.docx#

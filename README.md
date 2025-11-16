@@ -1,10 +1,14 @@
 # Asana tasks table maker
 
-This repository contains a script that, given a JSON with Asana tasks and two dates, will create a Word document with a table with the tasks between the two dates, ordered by completion state.
+This repository contains a script that, given a JSON with Asana tasks and two dates, will create a Word document with a table with the tasks created between the two dates, ordered by completion state.
 
 This script was originally made to help making the iteration reports of the Multimedia Projects assignment in Multimedia Engineering at the University of Alicante. However, you are free to use it and modify it as you please.
 
 # Instructions
+
+## Dependencias
+
+To use this script it's necessary to have Node.js installed. You can download it [here](https://nodejs.org/es/download).
 
 ## Export tasks
 
