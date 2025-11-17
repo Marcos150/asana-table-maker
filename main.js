@@ -11,23 +11,24 @@ const locale = 'ES'; // Default date locale is Spanish
 
 const headerShading = {
     fill: "#42c5f4",
-    type: ShadingType.PERCENT_40,
+    type: ShadingType.CLEAR,
 };
 
 const notCompletedShading = {
     fill: "#f57c7c",
-    type: ShadingType.PERCENT_40,
+    type: ShadingType.CLEAR,
 };
 
 const completedShading = {
     fill: "#42f468",
-    type: ShadingType.PERCENT_40,
+    type: ShadingType.CLEAR,
 };
 
 const grayShading = {
-    fill: "#d3d3d3",
-    type: ShadingType.PERCENT_75,
+    fill: "#f6f6f6",
+    type: ShadingType.CLEAR,
 };
+
 
 let obj;
 try {
